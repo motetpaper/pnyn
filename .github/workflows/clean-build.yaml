@@ -37,7 +37,7 @@ jobs:
               cat $f | jq -c > docs/$tag.min.json; 
 
               echo 'creating text files ...'
-              cat $f | jq 'to_entries[] | "\(.key) \(.value)"' > docs/$tag.txt; 
+              cat $f | jq -r 'to_entries[] | "\(.key) \(.value)"' > docs/$tag.txt; 
             done;
 
             # post-check
